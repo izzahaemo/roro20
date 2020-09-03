@@ -88,12 +88,17 @@ class Auth extends CI_Controller
                 redirect('auth/registration');
             } else {
                 $idkelas = $this->input->post('class');
+                if ($idkelas == "guru") {
+                    $role = 3;
+                } else {
+                    $role = 2;
+                }
                 $data = [
                     'name' => htmlspecialchars($this->input->post('name', true)),
                     'email' => $this->input->post('email', true),
                     'image' => 'default.jpg',
                     'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                    'role_id' => 2,
+                    'role_id' => $role,
                     'is_active' => 0,
                     'class' => $this->input->post('class'),
                     'no_absen' => $this->input->post('no_absen')
@@ -138,14 +143,6 @@ class Auth extends CI_Controller
         $isi['title'] = 'About Us';
         $this->load->view('templates/auth_header', $isi);
         $this->load->view('auth/about');
-        $this->load->view('templates/auth_footer');
-    }
-
-    public function manualbook()
-    {
-        $isi['title'] = 'About Us';
-        $this->load->view('templates/auth_header', $isi);
-        $this->load->view('auth/manualbook');
         $this->load->view('templates/auth_footer');
     }
 

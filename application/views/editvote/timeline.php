@@ -72,7 +72,7 @@
                         ?>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2><?php echo date('d-m-Y', strtotime($a['tgl'])); ?></h2>
+                                    <h2><?php echo date('d-m-Y', strtotime($t['tgl'])); ?></h2>
                                     <p><?php echo $t["name"]; ?></p>
                                 </div>
                             </div>
