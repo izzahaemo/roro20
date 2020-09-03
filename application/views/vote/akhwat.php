@@ -121,10 +121,10 @@
                 <?php if ($user['votea'] == 0) { ?>
                     <div class="col-md-3 mb-4">
                         <div class="card border-bottom-danger shadow h-100 py-2">
-                            <a href="<?= base_url('vote/ikhwat') ?>" class="card-body">
+                            <a href="<?= base_url('vote/ikhwan') ?>" class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="h8 font-weight-bold text-danger mb-1">Anda Belum Vote Ikhwat</div>
+                                        <div class="h8 font-weight-bold text-danger mb-1">Anda Belum Vote Ikhwan</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-minus fa-2x text-gray-300"></i>
@@ -139,7 +139,7 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="h8 font-weight-bold text-success  mb-1">Anda Sudah Vote Ikhwat</div>
+                                        <div class="h8 font-weight-bold text-success  mb-1">Anda Sudah Vote Ikhwan</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-user-check fa-2x text-gray-300"></i>
