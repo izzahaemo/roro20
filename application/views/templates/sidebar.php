@@ -7,7 +7,6 @@
             <img src="<?= base_url('assets/img/logoweb.jpg'); ?>" class="img-fluid" alt="Responsive image">
         </div>
         <div class="sidebar-brand-text mx-3">RORO20</div>
-        <h6>Reorganisasi Rohis SMA 3 Sukoharjo</h6>
     </a>
 
     <!-- Divider -->
