@@ -24,7 +24,7 @@
     <script src="<?= base_url('assets/'); ?>js/timeline.min.js" type="text/javascript"></script>
     <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
 
-    <link href="<?= base_url('assets/img/logoweb.png'); ?>" rel="shortcut icon">
+    <link href="<?= base_url('assets/img/logoweb.jpg'); ?>" rel="shortcut icon">
 </head>
 
 <body id="page-top">

@@ -4,9 +4,10 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('user') ?>">
         <div class="sidebar-brand-icon mx-3">
-            <img src="<?= base_url('assets/img/logoweb.png'); ?>" class="img-fluid" alt="Responsive image">
+            <img src="<?= base_url('assets/img/logoweb.jpg'); ?>" class="img-fluid" alt="Responsive image">
         </div>
-        <div class="sidebar-brand-text mx-3">RORO</div>
+        <div class="sidebar-brand-text mx-3">RORO20</div>
+        <h6>Reorganisasi Rohis SMA 3 Sukoharjo</h6>
     </a>
 
     <!-- Divider -->
