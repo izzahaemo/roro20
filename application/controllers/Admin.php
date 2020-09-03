@@ -149,7 +149,7 @@ class Admin extends CI_Controller
             'protocol'  => 'smtp',
             'smtp_host' => 'mail.roro20.masuk.id',
             'smtp_user' => 'rosmaga-noreply@roro20.masuk.id',  // Email gmail
-            'smtp_pass'   => 'qep)*}-F?BsE',  // Password gmail
+            'smtp_pass'   => 'u}H=M,66Y;At',  // Password gmail
             'smtp_crypto' => 'ssl',
             'smtp_port'   => 465,
             'crlf'    => "\r\n",
