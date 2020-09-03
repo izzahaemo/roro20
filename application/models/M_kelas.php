@@ -8,14 +8,14 @@ class M_kelas extends CI_Model
         $hasil = $this->db->get('kelas')->result_array();
         return $hasil;
     }
-    
+
     function one_kelas($idkelas)
     {
         $query = " SELECT *
                    FROM `kelas` 
                    WHERE `idkelas` = '$idkelas'
         ";
-         return $this->db->query($query)->row_array();
+        return $this->db->query($query)->row_array();
     }
 
     function allkelas()
@@ -37,33 +37,41 @@ class M_kelas extends CI_Model
     function tambah_total($idkelas)
     {
         $query = " SELECT `total` FROM `kelas` WHERE `idkelas` = '$idkelas' ";
-        $isi= $this->db->query($query)->row_array();
-        $isi['total']= $isi['total'] +1;
+        $isi = $this->db->query($query)->row_array();
+        $isi['total'] = $isi['total'] + 1;
         $hasil = $this->db->where('idkelas', $idkelas);
         return $hasil = $this->db->update('kelas', $isi);
     }
     function kurang_total($idkelas)
     {
         $query = " SELECT `total` FROM `kelas` WHERE `idkelas` = '$idkelas' ";
-        $isi= $this->db->query($query)->row_array();
-        $isi['total']= $isi['total'] - 1;
+        $isi = $this->db->query($query)->row_array();
+        $isi['total'] = $isi['total'] - 1;
         $hasil = $this->db->where('idkelas', $idkelas);
         return $hasil = $this->db->update('kelas', $isi);
     }
 
+    function kurang_aktif($idkelas)
+    {
+        $query = " SELECT `aktif` FROM `kelas` WHERE `idkelas` = '$idkelas' ";
+        $isi = $this->db->query($query)->row_array();
+        $isi['aktif'] = $isi['aktif'] - 1;
+        $hasil = $this->db->where('idkelas', $idkelas);
+        return $hasil = $this->db->update('kelas', $isi);
+    }
     function tambah_aktif($idkelas)
     {
         $query = " SELECT `aktif` FROM `kelas` WHERE `idkelas` = '$idkelas' ";
-        $isi= $this->db->query($query)->row_array();
-        $isi['aktif']= $isi['aktif'] + 1;
+        $isi = $this->db->query($query)->row_array();
+        $isi['aktif'] = $isi['aktif'] + 1;
         $hasil = $this->db->where('idkelas', $idkelas);
         return $hasil = $this->db->update('kelas', $isi);
     }
     function tambah_done($idkelas)
     {
         $query = " SELECT `done` FROM `kelas` WHERE `idkelas` = '$idkelas' ";
-        $isi= $this->db->query($query)->row_array();
-        $isi['done']= $isi['done'] + 1;
+        $isi = $this->db->query($query)->row_array();
+        $isi['done'] = $isi['done'] + 1;
         $hasil = $this->db->where('idkelas', $idkelas);
         return $hasil = $this->db->update('kelas', $isi);
     }

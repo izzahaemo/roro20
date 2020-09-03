@@ -107,6 +107,19 @@ class Admin extends CI_Controller
         $this->load->view("admin/kelas", $data);
         $this->load->view("templates/footer", $data);
     }
+    public function akelas($idkelas)
+    {
+        $data['titlemenu'] = 'Admin';
+        $data['title'] = 'Account';
+        $data['kelas'] = $this->m_kelas->one_kelas($idkelas);
+        $data['user'] = $this->m_user->userone();
+        $data['account'] = $this->m_user->user_kelas($idkelas);
+        $this->load->view("templates/header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
+        $this->load->view("admin/akelas", $data);
+        $this->load->view("templates/footer", $data);
+    }
     public function edit_user()
     {
         $idkelas = $this->input->post('idkelas');
@@ -171,8 +184,12 @@ class Admin extends CI_Controller
     {
         $idkelas = $this->input->post('idkelas');
         $iduser = $this->input->post('iduser');
-        $this->m_user->delete_user($iduser);
         $this->m_kelas->kurang_total($idkelas);
+        $data = $this->m_user->select_user($iduser);
+        if ($data['is_active'] == 1) {
+            $this->m_kelas->kurang_aktif($idkelas);
+        }
+        $this->m_user->delete_user($iduser);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Akun berhasil dihapus! </div>');
         redirect('admin/kelas/' . $idkelas);
