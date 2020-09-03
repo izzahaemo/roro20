@@ -147,9 +147,9 @@ class Admin extends CI_Controller
             'mailtype'  => 'html',
             'charset'   => 'utf-8',
             'protocol'  => 'smtp',
-            'smtp_host' => 'smtp.gmail.com',
-            'smtp_user' => 'sisuka.no.reply@gmail.com',  // Email gmail
-            'smtp_pass'   => '12j3lkSLK7sad12',  // Password gmail
+            'smtp_host' => 'mail.roro20.masuk.id',
+            'smtp_user' => 'rosmaga-noreply@roro20.masuk.id',  // Email gmail
+            'smtp_pass'   => 'qep)*}-F?BsE',  // Password gmail
             'smtp_crypto' => 'ssl',
             'smtp_port'   => 465,
             'crlf'    => "\r\n",
@@ -157,12 +157,13 @@ class Admin extends CI_Controller
         ];
 
         $this->load->library('email', $config);
-        $this->email->from('sisuka.no.reply@gmail.com', 'SISUKA');
+        $this->email->from('rosmaga-noreply@roro20.masuk.id', 'RORO20');
         $this->email->to($data['email']);
         $name = $data['name'];
-        $this->email->subject('Aktifasi Akun REORONLINE');
-        $this->email->message("Assalamu'alaikum<br>$b $name<br>Akun Anda sudah di Aktifkan </br><br><br> Klik <strong><a href='localhost/reoronline' target='_blank' rel='noopener'>disini</a></strong> Untuk masuk Ke Aplikasi<br><br>Terima kasih");
+        $this->email->subject('Aktivasi Akun RORO20');
+        $this->email->message("Assalamu'alaikum<br>$b $name<br>Akun Anda sudah di Aktifkan </br><br><br> Klik <strong><a href='http://roro20.masuk.id/' target='_blank' rel='noopener'>disini</a></strong> Untuk masuk Ke Aplikasi<br><br>Terima kasih<br><br>RORO20 (Reorganisasi Rohis SMAN 3 Sukoharjo 2020");
         $this->email->send();
+
 
         redirect('admin/kelas/' . $idkelas);
     }

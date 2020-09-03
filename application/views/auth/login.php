@@ -20,7 +20,7 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat datang di <b>RORO20</b></h1>
-                                        <h6>Reorganisasi Rohis SMA 3 Sukoharjo</h6>
+                                        <h6>Reorganisasi Rohis SMAN 3 Sukoharjo 2020</h6>
                                     </div>
                                     <?= $this->session->flashdata('message') ?>
                                     <form class="user" method="post" action="<?= base_url('auth'); ?>">
