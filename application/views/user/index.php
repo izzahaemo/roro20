@@ -108,7 +108,7 @@
                     </div>
                 </div>
             <?php } else { ?>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-6 mb-4">
                     <div class="card border-bottom-success shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
