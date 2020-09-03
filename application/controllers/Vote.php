@@ -28,6 +28,7 @@ class Vote extends CI_Controller
         $data['title'] = 'Vote Ikhwan';
         $data['user'] = $this->m_user->userone();
         $data['kandidat'] = $this->m_kandidati->kandidat();
+        $data['timeline'] = $this->m_user->timeline();
         $this->load->view("templates/header", $data);
         $this->load->view("templates/sidebar", $data);
         $this->load->view("templates/topbar", $data);
@@ -39,7 +40,7 @@ class Vote extends CI_Controller
         $data['title'] = 'Vote Akhwat';
         $data['user'] = $this->m_user->userone();
         $data['kandidat'] = $this->m_kandidata->kandidat();
-        $check = $this->m_user->check($data['user']['id']);
+        $data['timeline'] = $this->m_user->timeline();
         $this->load->view("templates/header", $data);
         $this->load->view("templates/sidebar", $data);
         $this->load->view("templates/topbar", $data);
@@ -68,5 +69,21 @@ class Vote extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Anda Berhasil Memilih</div>');
         redirect('vote/' . $j);
+    }
+
+    public function pengumuman()
+    {
+        $data['titlemenu'] = 'Vote';
+        $data['title'] = 'Pengumuman Vote';
+        $data['user'] = $this->m_user->userone();
+        $data['all'] = $this->m_kelas->allkelas();
+        $data['ikhwan'] = $this->m_kandidati->kandidat();
+        $data['akhwat'] = $this->m_kandidata->kandidat();
+        $data['timeline'] = $this->m_user->timeline();
+        $this->load->view("templates/header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
+        $this->load->view("vote/pengumuman", $data);
+        $this->load->view("templates/footer", $data);
     }
 }

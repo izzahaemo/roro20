@@ -7,9 +7,9 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg">
-                    <?= $this->session->flashdata('message') ?>
-                        <div class="p-5">
                         <?= $this->session->flashdata('message') ?>
+                        <div class="p-5">
+                            <?= $this->session->flashdata('message') ?>
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Membuat akun baru!</h1>
                             </div>
@@ -24,11 +24,12 @@
                                         <?= form_error('no_absen', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <select name="class" class="form-control">
-                                        <option selected value="0">Pilih Kelas</option>
-                                        <option value="xmia1">X MIA 1</option>
-                                        <option value="xmia2">X MIA 2</option>
-                                    </select>
+                                        <select name="class" class="form-control">
+                                            <option selected value="0">Pilih Kelas</option>
+                                            <?php foreach ($kelas as $k) : ?>
+                                                <option value="<?= $k['idkelas'] ?>"><?= $k['name'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">

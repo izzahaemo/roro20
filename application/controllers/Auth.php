@@ -76,8 +76,9 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
         if ($this->form_validation->run() == false) {
             $isi['title'] = 'Registrasi';
+            $data['kelas'] = $this->m_kelas->kelas();
             $this->load->view('templates/auth_header', $isi);
-            $this->load->view('auth/registration');
+            $this->load->view('auth/registration', $data);
             $this->load->view('templates/auth_footer');
         } else {
             $noabsen = $this->input->post('no_absen');

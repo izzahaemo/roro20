@@ -97,6 +97,133 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <?php $a = 0; ?>
+        <?php foreach ($ikhwan as $i) : ?>
+            <?php $a = $a + 1;
+            if ($a == 1) {
+                $in1 = $i['name'];
+                $iv1 = $i['vote'];
+                $ig1 = $i['image'];
+            } else {
+                $in2 = $i['name'];
+                $iv2 = $i['vote'];
+                $ig2 = $i['image'];
+            }
+            ?>
+            <div class="col-md-3 mb-4">
+                <div class="card border-bottom-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><?= $i['name'] ?></div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $i['vote'] ?></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php $b = 0; ?>
+        <?php foreach ($akhwat as $i) : ?>
+            <?php $b = $b + 1;
+            if ($b == 1) {
+                $an1 = $i['name'];
+                $av1 = $i['vote'];
+                $ag1 = $i['image'];
+            } else {
+                $an2 = $i['name'];
+                $av2 = $i['vote'];
+                $ag2 = $i['image'];
+            }
+            ?>
+            <div class="col-md-3 mb-4">
+                <div class="card border-bottom-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><?= $i['name'] ?></div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $i['vote'] ?></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php if ($iv1 > $iv2) {
+        $ivw = $iv1;
+        $inw = $in1;
+        $igw = $ig1;
+    } else {
+        $ivw = $iv2;
+        $inw = $in2;
+        $igw = $ig2;
+    }
+    if ($av1 > $av2) {
+        $avw = $av1;
+        $anw = $an1;
+        $agw = $ag1;
+    } else {
+        $avw = $av2;
+        $anw = $an2;
+        $agw = $ag2;
+    }
+    ?>
+    <div class="row">
+        <div class="col-xl-6 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Pemenang Vote Ikhwan Saat ini</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="<?= base_url(('assets/img/kandidat/') . $igw) ?>" class="card-img">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $inw; ?></h5>
+                                <p class="card-text">Dengan Hasil Vote <?= $ivw; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Pemenang Vote Akhwat Saat ini</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="<?= base_url(('assets/img/kandidat/') . $agw) ?>" class="card-img">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $anw; ?></h5>
+                                <p class="card-text">Dengan Hasil Vote <?= $avw; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- pie chart -->
     <div class="row">
         <div class="col-xl-4 col-lg-5">
@@ -141,62 +268,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <?php $a = 0; ?>
-        <?php foreach ($ikhwan as $i) : ?>
-            <?php $a = $a + 1;
-            if ($a == 1) {
-                $in1 = $i['name'];
-                $iv1 = $i['vote'];
-            } else {
-                $in2 = $i['name'];
-                $iv2 = $i['vote'];
-            }
-            ?>
-            <div class="col-md-3 mb-4">
-                <div class="card border-bottom-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><?= $i['name'] ?></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $i['vote'] ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user-check fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
-        <?php $b = 0; ?>
-        <?php foreach ($akhwat as $i) : ?>
-            <?php $b = $b + 1;
-            if ($b == 1) {
-                $an1 = $i['name'];
-                $av1 = $i['vote'];
-            } else {
-                $an2 = $i['name'];
-                $av2 = $i['vote'];
-            }
-            ?>
-            <div class="col-md-3 mb-4">
-                <div class="card border-bottom-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><?= $i['name'] ?></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $i['vote'] ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user-check fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
     </div>
 
 

@@ -86,7 +86,7 @@ class Admin extends CI_Controller
         $data['titlemenu'] = 'Admin';
         $data['title'] = 'Account';
         $data['user'] = $this->m_user->userone();
-        $data['kelas'] =$this->m_kelas->kelas();
+        $data['kelas'] = $this->m_kelas->kelas();
         $data['all'] = $this->m_kelas->allkelas();
         $this->load->view("templates/header", $data);
         $this->load->view("templates/sidebar", $data);
@@ -100,7 +100,7 @@ class Admin extends CI_Controller
         $data['title'] = 'Account';
         $data['kelas'] = $this->m_kelas->one_kelas($idkelas);
         $data['user'] = $this->m_user->userone();
-        $data['account'] =$this->m_user->user_kelas($idkelas);
+        $data['account'] = $this->m_user->user_kelas($idkelas);
         $this->load->view("templates/header", $data);
         $this->load->view("templates/sidebar", $data);
         $this->load->view("templates/topbar", $data);
@@ -118,7 +118,7 @@ class Admin extends CI_Controller
         $this->m_user->edit_user($iduser, $edit_role, $edit_active, $edit_email);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Akun berhasil di ubah! </div>');
-        redirect('admin/kelas/'.$idkelas);
+        redirect('admin/kelas/' . $idkelas);
     }
     public function aktif()
     {
@@ -128,8 +128,8 @@ class Admin extends CI_Controller
         $this->m_kelas->tambah_aktif($idkelas);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Akun berhasil diaktifkan! </div>');
-        $data=$this->m_user->select_user($iduser);
-        
+        $data = $this->m_user->select_user($iduser);
+
         //kirim email
         $a = date("H");
         if (($a >= 6) && ($a <= 11)) {
@@ -159,12 +159,12 @@ class Admin extends CI_Controller
         $this->load->library('email', $config);
         $this->email->from('sisuka.no.reply@gmail.com', 'SISUKA');
         $this->email->to($data['email']);
-        $name=$data['name'];
+        $name = $data['name'];
         $this->email->subject('Aktifasi Akun REORONLINE');
         $this->email->message("Assalamu'alaikum<br>$b $name<br>Akun Anda sudah di Aktifkan </br><br><br> Klik <strong><a href='localhost/reoronline' target='_blank' rel='noopener'>disini</a></strong> Untuk masuk Ke Aplikasi<br><br>Terima kasih");
         $this->email->send();
 
-        redirect('admin/kelas/'.$idkelas);
+        redirect('admin/kelas/' . $idkelas);
     }
     public function delete()
     {
@@ -174,6 +174,6 @@ class Admin extends CI_Controller
         $this->m_kelas->kurang_total($idkelas);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Akun berhasil dihapus! </div>');
-        redirect('admin/kelas/'.$idkelas);
+        redirect('admin/kelas/' . $idkelas);
     }
 }
