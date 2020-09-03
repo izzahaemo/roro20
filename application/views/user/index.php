@@ -243,7 +243,7 @@
                     <div class="card border-bottom-success shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">x `
+                                <div class="col mr-2">
                                     <div class="h8 font-weight-bold text-success  mb-1">Anda Sudah Vote Akhwat</div>
                                 </div>
                                 <div class="col-auto">
