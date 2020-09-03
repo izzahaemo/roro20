@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Hasil Vote</h1>
+    <h1 class="h3 mb-4 text-gray-800">Live Vote Count Tanggal <?= date('d-m-y') ?> | Jam <?= date('H-i-s') ?></h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url('user'); ?>"><i class="fas fa-fw fa-home"></i></a></li>

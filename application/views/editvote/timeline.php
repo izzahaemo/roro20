@@ -23,7 +23,6 @@
                         <tr>
                             <th>ID</th>
                             <th>Nama</th>
-                            <th>Ket</th>
                             <th>Tanggal</th>
                             <th>Action</th>
                         </tr>
@@ -32,7 +31,6 @@
                         <tr>
                             <th>ID</th>
                             <th>Nama</th>
-                            <th>Ket/th>
                             <th>Tanggal</th>
                             <th>Action</th>
                         </tr>
@@ -43,8 +41,7 @@
                             <tr>
                                 <td><?= $a['id'] ?></td>
                                 <td><?= $a['name']; ?></td>
-                                <td><?= $a['ket']; ?></td>
-                                <td><?= date('d-m-y', strtotime($a['tgl'])); ?></td>
+                                <td><?= date('d-m-Y', strtotime($a['tgl'])); ?></td>
                                 <td>
                                     <a href="" class="btn btn-info btn-icon-split btn-sm" data-toggle="modal" data-target="#edit<?= $a['id']; ?>">
                                         <span class="icon text-white-50">
@@ -75,7 +72,7 @@
                         ?>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2><?php echo $t["tgl"]; ?></h2>
+                                    <h2><?php echo date('d-m-Y', strtotime($a['tgl'])); ?></h2>
                                     <p><?php echo $t["name"]; ?></p>
                                 </div>
                             </div>
@@ -120,12 +117,6 @@ foreach ($timeline as $a) :
                             <label for="" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="name" name="name" value="<?= $a['name']; ?>">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Ket</label>
-                            <div class="col-sm-10">
-                                <textarea type="text" class="form-control" id="ket" name="ket" rows="3"><?= $a['ket']; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group row">

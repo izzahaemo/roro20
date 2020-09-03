@@ -30,7 +30,7 @@ class Editvote extends CI_Controller
     public function timeline()
     {
         $data['titlemenu'] = 'Edit Vote';
-        $data['title'] = 'Edit Timeline ';
+        $data['title'] = 'Edit Timeline';
         $data['user'] = $this->m_user->userone();
         $data['timeline'] = $this->m_user->timeline();
         $this->load->view("templates/header", $data);
@@ -45,7 +45,6 @@ class Editvote extends CI_Controller
         $id = $this->input->post('id');
         $isi = [
             'name' => $this->input->post('name'),
-            'ket' => $this->input->post('ket'),
             'tgl' => $this->input->post('tgl')
         ];
         $this->m_user->update_timeline($isi, $id);

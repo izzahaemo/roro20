@@ -16,6 +16,19 @@
     ?>
     <h1 class="h3 mb-4 text-gray-800"><?= $b ?></h1>
 
+    <?php
+    $b = 0;
+    if (date('d-m-Y', strtotime($timeline[0]['tgl'])) <= date('d-m-Y') && date('d-m-Y', strtotime($timeline[1]['tgl'])) > date('d-m-Y')) {
+        $b = 1;
+    } elseif (date('d-m-Y', strtotime($timeline[1]['tgl'])) <= date('d-m-Y') && date('d-m-Y', strtotime($timeline[2]['tgl'])) > date('d-m-Y')) {
+        $b = 2;
+    } elseif (date('d-m-Y', strtotime($timeline[2]['tgl'])) <= date('d-m-Y') && date('d-m-Y', strtotime($timeline[3]['tgl'])) > date('d-m-Y')) {
+        $b = 3;
+    } elseif (date('d-m-Y', strtotime($timeline[3]['tgl'])) <= date('d-m-Y')) {
+        $b = 4;
+    }
+    ?>
+
     <div class="row">
         <div class="col-lg-12">
             <?= form_error('name', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
@@ -46,7 +59,236 @@
                 </div>
             </div>
         </div>
+        <?php if ($b == 1) { ?>
+            <div class="col-md-3 mb-4">
+                <div class="card border-bottom-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="h4 font-weight-bold text-info  mb-1">Vote Belum Di Buka</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-info-circle fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card border-bottom-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Vote Dibuka Tanggal</div>
+                                <div class="h4 mb-0 font-weight-bold text-gray-800"><?= date('d-m-Y', strtotime($timeline[1]['tgl'])) ?></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <?php if ($b == 2) { ?>
+            <?php if ($user['is_vote'] == 0) { ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card border-bottom-danger shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h3 font-weight-bold text-danger mb-1">Anda Belum Menyelesaikan Vote</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-minus fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card border-bottom-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 font-weight-bold text-success  mb-1">Anda Sudah Menyelesaikan Vote</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        <?php } ?>
+
+        <?php if ($b == 3) { ?>
+            <div class="col-md-3 mb-4">
+                <div class="card border-bottom-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="h4 font-weight-bold text-info  mb-1">Vote Sudah Di Tutup</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-info-circle fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php if ($user['is_vote'] == 0) { ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card border-bottom-danger shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 font-weight-bold text-danger mb-1">Anda Tidak Menyelesaikan Vote</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-minus fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card border-bottom-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h3 font-weight-bold text-success  mb-1">Anda Sudah Menyelesaikan Vote</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        <?php } ?>
+        <?php if ($b == 4) { ?>
+            <div class="col-md-6 mb-4">
+                <div class="card border-bottom-info shadow h-100 py-2">
+                    <a href="<?= base_url('vote/pengumuman') ?>" class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="h4 font-weight-bold text-info  mb-1">Pengumuman Vote Telah Dibuka</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-info-circle fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        <?php } ?>
     </div>
+
+    <div class="row">
+        <?php if ($b == 2) { ?>
+            <?php if ($user['votei'] == 0) { ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card border-bottom-danger shadow h-100 py-2">
+                        <a href="<?= base_url('vote/ikhwan') ?>" class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h8 font-weight-bold text-danger mb-1">Anda Belum Vote Ikhwan</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-minus fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card border-bottom-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h8 font-weight-bold text-success  mb-1">Anda Sudah Vote Ikhwan</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            <?php if ($user['votea'] == 0) { ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card border-bottom-danger shadow h-100 py-2">
+                        <a href="<?= base_url('vote/akhwat') ?>" class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h8 font-weight-bold text-danger mb-1">Anda Belum Vote Akhwat</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-minus fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card border-bottom-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">x `
+                                    <div class="h8 font-weight-bold text-success  mb-1">Anda Sudah Vote Akhwat</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            <div class="col-md-6 mb-4">
+                <div class="card border-bottom-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Vote Dibuka Hingga</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= date('d-m-Y', strtotime($timeline[2]['tgl'])) ?></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+        <?php if ($b == 3) { ?>
+            <div class="col-md-12 mb-4">
+                <div class="card border-bottom-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pengumuman Vote Tanggal</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= date('d-m-Y', strtotime($timeline[3]['tgl'])) ?></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Timeline REOR</h6>
@@ -60,7 +302,7 @@
                         ?>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2><?php echo $t["tgl"]; ?></h2>
+                                    <h2><?php echo date('d-m-Y', strtotime($t['tgl'])); ?></h2>
                                     <p><?php echo $t["name"]; ?></p>
                                 </div>
                             </div>
