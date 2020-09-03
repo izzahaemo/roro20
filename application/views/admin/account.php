@@ -105,43 +105,47 @@
         <?= $this->session->flashdata('message'); ?>
         <!-- Data tahun-->
         <?php foreach ($kelas as $m) : ?>
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <a href="<?= base_url('admin/') . $m['url']; ?>">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
-                                        <?= $m['name']; ?>
+            <?php if ($m['id'] == 31) { ?>
+                <div class="col-xl-6 col-md-6 mb-4">
+                <?php } else { ?>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                    <?php } ?>
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <a href="<?= base_url('admin/') . $m['url']; ?>">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
+                                            <?= $m['name']; ?>
+                                        </div>
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800">
+                                            <div class="col-sm">
+                                                <i class="fas fa-fw fa-users"></i>
+                                                <?= $m['total']; ?>
+                                            </div>
+                                            <div class="col-sm">
+                                                <i class="fas fa-fw fa-check"></i>
+                                                <?= $m['aktif']; ?>
+                                            </div>
+                                            <div class="col-sm">
+                                                <i class="fas fa-fw fa-user-check"></i>
+                                                <?= $m['done'] ?>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                        <div class="col-sm">
-                                            <i class="fas fa-fw fa-users"></i>
-                                            <?= $m['total']; ?>
-                                        </div>
-                                        <div class="col-sm">
-                                            <i class="fas fa-fw fa-check"></i>
-                                            <?= $m['aktif']; ?>
-                                        </div>
-                                        <div class="col-sm">
-                                            <i class="fas fa-fw fa-user-check"></i>
-                                            <?= $m['done'] ?>
-                                        </div>
+                                    <div class="col-auto">
+                                        <i class="text-lg"><?= $m['id']; ?></i>
                                     </div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="text-lg"><?= $m['id']; ?></i>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    </div>
+                <?php endforeach; ?>
                 </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
 
-</div>
-<!-- /.container-fluid -->
+    </div>
+    <!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->
