@@ -98,6 +98,9 @@
     $(document).ready(function() {
         $('#dataakun').DataTable({});
     });
+    $(document).ready(function() {
+        $('#dataadmin').DataTable({});
+    });
 
     //Hapus Akun
     $(document).ready(function() {

@@ -16,6 +16,7 @@ class Admin extends CI_Controller
         $data['titlemenu'] = 'Admin';
         $data['title'] = 'Dashboard';
         $data['user'] = $this->m_user->userone();
+        $data['all'] = $this->m_user->show_user();
         $this->load->view("templates/header", $data);
         $this->load->view("templates/sidebar", $data);
         $this->load->view("templates/topbar", $data);
