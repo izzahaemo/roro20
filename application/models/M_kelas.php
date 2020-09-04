@@ -59,6 +59,7 @@ class M_kelas extends CI_Model
         $hasil = $this->db->where('idkelas', $idkelas);
         return $hasil = $this->db->update('kelas', $isi);
     }
+
     function tambah_aktif($idkelas)
     {
         $query = " SELECT `aktif` FROM `kelas` WHERE `idkelas` = '$idkelas' ";

@@ -296,6 +296,7 @@ foreach ($account as $a) :
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="iduser" value="<?= $a['id'] ?>">
+                        <input type="hidden" name="idkelas" value="<?= $kelas['idkelas'] ?>">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                         <button type="submit" class="btn btn-danger">Hapus</button>
                     </div>

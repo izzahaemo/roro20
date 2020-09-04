@@ -94,6 +94,7 @@ class Admin extends CI_Controller
         $this->load->view("admin/account", $data);
         $this->load->view("templates/footer", $data);
     }
+
     public function kelas($idkelas)
     {
         $data['titlemenu'] = 'Admin';
@@ -107,6 +108,7 @@ class Admin extends CI_Controller
         $this->load->view("admin/kelas", $data);
         $this->load->view("templates/footer", $data);
     }
+
     public function akelas($idkelas)
     {
         $data['titlemenu'] = 'Admin';
@@ -114,6 +116,7 @@ class Admin extends CI_Controller
         $data['kelas'] = $this->m_kelas->one_kelas($idkelas);
         $data['user'] = $this->m_user->userone();
         $data['account'] = $this->m_user->user_kelas($idkelas);
+        $data['role'] = $this->m_user->getrole();
         $this->load->view("templates/header", $data);
         $this->load->view("templates/sidebar", $data);
         $this->load->view("templates/topbar", $data);
@@ -174,10 +177,8 @@ class Admin extends CI_Controller
         $this->email->to($data['email']);
         $name = $data['name'];
         $this->email->subject('Aktivasi Akun RORO20');
-        $this->email->message("Assalamu'alaikum<br>$b $name<br>Akun Anda sudah di Aktifkan </br><br><br> Klik <strong><a href='http://roro20.masuk.id/' target='_blank' rel='noopener'>disini</a></strong> Untuk masuk Ke Aplikasi<br><br>Terima kasih<br><br>RORO20 (Reorganisasi Rohis SMAN 3 Sukoharjo 2020");
+        $this->email->message("Assalamu'alaikum<br>$b $name<br>Akun Anda sudah di Aktifkan </br><br><br> Klik <strong><a href='http://roro20.masuk.id/' target='_blank' rel='noopener'>disini</a></strong> Untuk masuk Ke Aplikasi<br><br>Terima kasih<br><br>RORO20 (Reorganisasi Rohis SMAN 3 Sukoharjo 2020)");
         $this->email->send();
-
-
         redirect('admin/kelas/' . $idkelas);
     }
     public function delete()
