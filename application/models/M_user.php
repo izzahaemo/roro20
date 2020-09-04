@@ -132,4 +132,9 @@ class M_user extends CI_Model
         $hasil = $this->db->update('timeline', $isi);
         return $hasil;
     }
+    function select_emails()
+    {
+        $hasil = $this->db->get_where('emails', ['id' => 1])->row_array();
+        return $hasil;
+    }
 }

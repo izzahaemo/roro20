@@ -145,7 +145,7 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Akun berhasil diaktifkan! </div>');
         $data = $this->m_user->select_user($iduser);
-
+        $emails = $this->m_user->select_emails();
         //kirim email
         $a = date("H");
         if (($a >= 6) && ($a <= 11)) {
@@ -163,17 +163,17 @@ class Admin extends CI_Controller
             'mailtype'  => 'html',
             'charset'   => 'utf-8',
             'protocol'  => 'smtp',
-            'smtp_host' => 'mail.roro20.masuk.id',
-            'smtp_user' => 'rosmaga-noreply@roro20.masuk.id',  // Email gmail
-            'smtp_pass'   => 'u}H=M,66Y;At',  // Password gmail
+            'smtp_host' => $emails['host'],
+            'smtp_user' => $emails['user'],  // Email gmail
+            'smtp_pass'   => $emails['pass'],  // Password gmail
             'smtp_crypto' => 'ssl',
-            'smtp_port'   => 465,
+            'smtp_port'   => $emails['port'],
             'crlf'    => "\r\n",
             'newline' => "\r\n"
         ];
 
         $this->load->library('email', $config);
-        $this->email->from('rosmaga-noreply@roro20.masuk.id', 'RORO20');
+        $this->email->from($emails['user'], 'RORO20');
         $this->email->to($data['email']);
         $name = $data['name'];
         $this->email->subject('Aktivasi Akun RORO20');
