@@ -23,6 +23,7 @@
                             <th>ID</th>
                             <th>Email</th>
                             <th>Nama</th>
+                            <th>Kelas</th>
                             <th>Role</th>
                             <th>Status</th>
                         </tr>
@@ -32,6 +33,7 @@
                             <th>ID</th>
                             <th>Email</th>
                             <th>Nama</th>
+                            <th>Kelas</th>
                             <th>Role</th>
                             <th>Status</th>
                         </tr>
@@ -44,6 +46,7 @@
                                     <td><?= $i; ?></td>
                                     <td><?= $a['email']; ?></td>
                                     <td><?= $a['name']; ?></td>
+                                    <td><?= $a['class']; ?></td>
                                     <td><?= $a['role']; ?></td>
                                     <?php if ($a['is_active'] == 0) {
                                         $status = "Off";
