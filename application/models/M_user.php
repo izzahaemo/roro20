@@ -11,8 +11,19 @@ class M_user extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
+    public function last_login()
+    {
+        $email = $this->session->userdata('email');
+        $query = " UPDATE `user` SET `last_login` = NOW() WHERE `user`.`email` = '$email'; ";
+        return $this->db->query($query);
+    }
+
     public function userone()
     {
+        $email = $this->session->userdata('email');
+        $querylogin = " UPDATE `user` SET `last_login` = NOW() WHERE `user`.`email` = '$email'; ";
+        $this->db->query($querylogin);
+
         $user = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $iduser = $user['id'];
         $query = "  SELECT `user`.*,`user_role`.`role`

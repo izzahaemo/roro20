@@ -25,6 +25,7 @@
                             <th>Nama</th>
                             <th>Kelas</th>
                             <th>Role</th>
+                            <th>Last Login</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -35,6 +36,7 @@
                             <th>Nama</th>
                             <th>Kelas</th>
                             <th>Role</th>
+                            <th>Last Login</th>
                             <th>Status</th>
                         </tr>
                     </tfoot>
@@ -48,6 +50,12 @@
                                     <td><?= $a['name']; ?></td>
                                     <td><?= $a['class']; ?></td>
                                     <td><?= $a['role']; ?></td>
+                                    <td><?php if (date('d-m-y') != date('d-m-y', strtotime($a['last_login']))) : ?>
+                                            <?= date('d-m-y', strtotime($a['last_login'])) ?>
+                                        <?php else : ?>
+                                            <?= date('H:i:s', strtotime($a['last_login'])) ?>
+                                        <?php endif; ?>
+                                    </td>
                                     <?php if ($a['is_active'] == 0) {
                                         $status = "Off";
                                     } else if ($a['is_vote'] == 1) {

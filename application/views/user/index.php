@@ -53,6 +53,7 @@
                                 <h5 class="card-title"><?= $user['name']; ?></h5>
                                 <p class="card-text"><?= $user['email']; ?></p>
                                 <p class="card-text"><?= $user['role']; ?></p>
+                                <p class="card-text">Last Login <?= date('d-m-y H:i:s', strtotime($user['last_login'])) ?></p>
                             </div>
                         </div>
                     </div>

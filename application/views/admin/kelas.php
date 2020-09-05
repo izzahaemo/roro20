@@ -28,6 +28,7 @@
                             <th>Email</th>
                             <th>Nama</th>
                             <th>Role</th>
+                            <th>Last Login</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -38,6 +39,7 @@
                             <th>Email</th>
                             <th>Nama</th>
                             <th>Role</th>
+                            <th>Last Login</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -58,6 +60,12 @@
                                     $status = "Aktif";
                                 }
                                 ?>
+                                <td><?php if (date('d-m-y') != date('d-m-y', strtotime($a['last_login']))) : ?>
+                                        <?= date('d-m-y', strtotime($a['last_login'])) ?>
+                                    <?php else : ?>
+                                        <?= date('H:i:s', strtotime($a['last_login'])) ?>
+                                    <?php endif; ?>
+                                </td>
                                 <td><?= $status ?></td>
                                 <td>
                                     <?php if ($a['is_active'] != 1) { ?>
