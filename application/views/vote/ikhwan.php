@@ -298,9 +298,9 @@
                                     <h5 class="card-title"><?= $i['name']; ?></h5>
                                     <p class="card-text"><?= $i['kelas']; ?></p>
                                     <p class="card-text">VISI</p>
-                                    <p class="card-text"><?= $i['visi']; ?></p>
+                                    <p class="card-text text-justify"><?= $i['visi']; ?></p>
                                     <p class="card-text">MISI</p>
-                                    <p class="card-text"><?= $i['misi']; ?></p>
+                                    <textarea type="text" class="form-control text-justify" id="misi" name="misi" rows="15" readonly><?= $i['misi']; ?></textarea>
                                 </div>
                             </div>
                             <div class="containeraa">
