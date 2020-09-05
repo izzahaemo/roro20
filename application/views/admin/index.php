@@ -36,7 +36,7 @@
                             <th>Nama</th>
                             <th>Kelas</th>
                             <th>Role</th>
-                            <th>Last Login</th>
+                            <th>Last Active</th>
                             <th>Status</th>
                         </tr>
                     </tfoot>

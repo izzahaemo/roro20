@@ -39,7 +39,7 @@
                             <th>Email</th>
                             <th>Nama</th>
                             <th>Role</th>
-                            <th>Last Login</th>
+                            <th>Last Active</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
