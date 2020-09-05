@@ -58,7 +58,7 @@
                                     <p class="card-text">VISI</p>
                                     <p class="card-text text-justify"><?= $i['visi']; ?></p>
                                     <p class="card-text">MISI</p>
-                                    <textarea type="text" class="form-control text-justify" id="misi" name="misi" rows="15" readonly><?= $i['misi']; ?></textarea>
+                                    <textarea type="text" class="form-control text-justify" id="misi" name="misi" rows="16" readonly><?= $i['misi']; ?></textarea>
                                 </div>
                             </div>
                             <div class="containera">

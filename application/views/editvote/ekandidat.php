@@ -34,13 +34,13 @@
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Visi</label>
                     <div class="col-sm-10">
-                        <textarea type="text" class="form-control" id="visi" name="visi" rows="3"><?= $kandidat['visi']; ?></textarea>
+                        <textarea type="text" class="form-control" id="visi" name="visi" rows="10"><?= $kandidat['visi']; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Misi</label>
                     <div class="col-sm-10">
-                        <textarea type="text" class="form-control" id="misi" name="misi" rows="3"><?= $kandidat['misi']; ?></textarea>
+                        <textarea type="text" class="form-control" id="misi" name="misi" rows="16"><?= $kandidat['misi']; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
