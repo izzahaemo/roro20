@@ -19,7 +19,7 @@
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Timline view -->
-    <link href="<?= base_url('assets/css/'); ?>timeline.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/vendor/jquerytimeline/'); ?>jquery.roadmap.min.css" rel="stylesheet">
     <!-- Include jQuery Roadmap Plugin -->
     <script src="<?= base_url('assets/'); ?>js/timeline.min.js" type="text/javascript"></script>
     <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>

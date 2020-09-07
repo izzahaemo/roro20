@@ -23,4 +23,5 @@
     <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
     <!-- Timline view -->
     <link href="<?= base_url('assets/css/'); ?>timeline.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/vendor/jquerytimeline/'); ?>jquery.roadmap.min.css" rel="stylesheet">
 </head>

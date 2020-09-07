@@ -64,24 +64,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Timeline</h6>
         </div>
         <div class="card-body">
-            <div class="timeline">
-                <div class="timeline__wrap">
-                    <div class="timeline__items">
-                        <?php
-                        foreach ($timeline as $t) {
-                        ?>
-                            <div class="timeline__item">
-                                <div class="timeline__content">
-                                    <h2><?php echo date('d-m-Y', strtotime($t['tgl'])); ?></h2>
-                                    <p><?php echo $t["name"]; ?></p>
-                                </div>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
+            <div id="my-roadmap"></div>
         </div>
     </div>
 
@@ -92,6 +75,35 @@
 
 </div>
 <!-- End of Main Content -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var events = [{
+                date: '<?= date('d-m-Y', strtotime($timeline[0]['tgl'])); ?>',
+                content: '<?= $timeline[0]['name']; ?>'
+            },
+            {
+                date: '<?= date('d-m-Y', strtotime($timeline[1]['tgl'])); ?>',
+                content: '<?= $timeline[1]['name']; ?>'
+            }, {
+                date: '<?= date('d-m-Y', strtotime($timeline[2]['tgl'])); ?>',
+                content: '<?= $timeline[2]['name']; ?>'
+            }, {
+                date: '<?= date('d-m-Y', strtotime($timeline[3]['tgl'])); ?>',
+                content: '<?= $timeline[3]['name']; ?>'
+            }
+        ];
+
+        $('#my-roadmap').roadmap(events, {
+            eventsPerSlide: 4,
+            slide: 1,
+            onBuild: function() {
+                console.log('onBuild event')
+            }
+        });
+    });
+</script>
 
 <!-- modal Edit 1-->
 <?php
