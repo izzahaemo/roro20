@@ -80,20 +80,18 @@
     $(document).ready(function() {
 
         var events = [{
-                date: '<?= date('d-m-Y', strtotime($timeline[0]['tgl'])); ?>',
-                content: '<?= $timeline[0]['name']; ?>'
-            },
-            {
-                date: '<?= date('d-m-Y', strtotime($timeline[1]['tgl'])); ?>',
-                content: '<?= $timeline[1]['name']; ?>'
-            }, {
-                date: '<?= date('d-m-Y', strtotime($timeline[2]['tgl'])); ?>',
-                content: '<?= $timeline[2]['name']; ?>'
-            }, {
-                date: '<?= date('d-m-Y', strtotime($timeline[3]['tgl'])); ?>',
-                content: '<?= $timeline[3]['name']; ?>'
-            }
-        ];
+            date: '<?= date('d-m-y', strtotime($timeline[0]['tgl'])); ?>',
+            content: '<?= $timeline[0]['name']; ?>'
+        }, {
+            date: '<?= date('d-m-y', strtotime($timeline[1]['tgl'])); ?>',
+            content: '<?= $timeline[1]['name']; ?>'
+        }, {
+            date: '<?= date('d-m-y', strtotime($timeline[2]['tgl'])); ?>',
+            content: '<?= $timeline[2]['name']; ?>'
+        }, {
+            date: '<?= date('d-m-y', strtotime($timeline[3]['tgl'])); ?>',
+            content: '<?= $timeline[3]['name']; ?>'
+        }];
 
         $('#my-roadmap').roadmap(events, {
             eventsPerSlide: 4,
