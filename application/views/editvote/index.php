@@ -11,15 +11,15 @@
         </ol>
     </nav>
     <?php
-    $b = 0;
+    $c = 0;
     if (date('d-m-Y', strtotime($timeline[0]['tgl'])) <= date('d-m-Y') && date('d-m-Y', strtotime($timeline[1]['tgl'])) > date('d-m-Y')) {
-        $b = 1;
+        $c = 1;
     } elseif (date('d-m-Y', strtotime($timeline[1]['tgl'])) <= date('d-m-Y') && date('d-m-Y', strtotime($timeline[2]['tgl'])) > date('d-m-Y')) {
-        $b = 2;
+        $c = 2;
     } elseif (date('d-m-Y', strtotime($timeline[2]['tgl'])) <= date('d-m-Y') && date('d-m-Y', strtotime($timeline[3]['tgl'])) > date('d-m-Y')) {
-        $b = 3;
+        $c = 3;
     } elseif (date('d-m-Y', strtotime($timeline[3]['tgl'])) <= date('d-m-Y')) {
-        $b = 4;
+        $c = 4;
     }
     ?>
     <!-- Informasi Total-->
@@ -189,7 +189,8 @@
         $agw = $ag2;
     }
     ?>
-    <?php if ($b != 1) { ?>
+
+    <?php if ($c != 1) { ?>
         <div class="row">
             <div class="col-xl-6 col-lg-7">
                 <div class="card shadow mb-4">
@@ -231,6 +232,22 @@
                                     <p class="card-text">Dengan Hasil Vote <?= $avw; ?></p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } else { ?>
+        <div class="col-xl-12 mb-4">
+            <div class="card border-bottom-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Vote Dibuka Tanggal</div>
+                            <div class="h4 mb-0 font-weight-bold text-gray-800"><?= date('d-m-Y', strtotime($timeline[1]['tgl'])) ?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
