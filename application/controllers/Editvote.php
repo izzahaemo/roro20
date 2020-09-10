@@ -21,6 +21,7 @@ class Editvote extends CI_Controller
         $data['all'] = $this->m_kelas->allkelas();
         $data['ikhwan'] = $this->m_kandidati->kandidat();
         $data['akhwat'] = $this->m_kandidata->kandidat();
+        $data['timeline'] = $this->m_user->timeline();
         $this->load->view("templates/header", $data);
         $this->load->view("templates/sidebar", $data);
         $this->load->view("templates/topbar", $data);

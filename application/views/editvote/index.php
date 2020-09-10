@@ -10,7 +10,18 @@
             <li class="breadcrumb-item active" aria-current="page"><?= $title ?></li>
         </ol>
     </nav>
-
+    <?php
+    $b = 0;
+    if (date('d-m-Y', strtotime($timeline[0]['tgl'])) <= date('d-m-Y') && date('d-m-Y', strtotime($timeline[1]['tgl'])) > date('d-m-Y')) {
+        $b = 1;
+    } elseif (date('d-m-Y', strtotime($timeline[1]['tgl'])) <= date('d-m-Y') && date('d-m-Y', strtotime($timeline[2]['tgl'])) > date('d-m-Y')) {
+        $b = 2;
+    } elseif (date('d-m-Y', strtotime($timeline[2]['tgl'])) <= date('d-m-Y') && date('d-m-Y', strtotime($timeline[3]['tgl'])) > date('d-m-Y')) {
+        $b = 3;
+    } elseif (date('d-m-Y', strtotime($timeline[3]['tgl'])) <= date('d-m-Y')) {
+        $b = 4;
+    }
+    ?>
     <!-- Informasi Total-->
     <div class="row">
         <div class="col-md-3 mb-4">
@@ -178,52 +189,54 @@
         $agw = $ag2;
     }
     ?>
-    <div class="row">
-        <div class="col-xl-6 col-lg-7">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Pemenang Vote Ikhwan Saat ini</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="<?= base_url(('assets/img/kandidat/') . $igw) ?>" class="card-img">
+    <?php if ($b != 1) { ?>
+        <div class="row">
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Pemenang Vote Ikhwan Saat ini</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="<?= base_url(('assets/img/kandidat/') . $igw) ?>" class="card-img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $inw; ?></h5>
+                                    <p class="card-text">Dengan Hasil Vote <?= $ivw; ?></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $inw; ?></h5>
-                                <p class="card-text">Dengan Hasil Vote <?= $ivw; ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Pemenang Vote Akhwat Saat ini</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="<?= base_url(('assets/img/kandidat/') . $agw) ?>" class="card-img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $anw; ?></h5>
+                                    <p class="card-text">Dengan Hasil Vote <?= $avw; ?></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-6 col-lg-7">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Pemenang Vote Akhwat Saat ini</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="<?= base_url(('assets/img/kandidat/') . $agw) ?>" class="card-img">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $anw; ?></h5>
-                                <p class="card-text">Dengan Hasil Vote <?= $avw; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php } ?>
     <!-- pie chart -->
     <div class="row">
         <div class="col-xl-4 col-lg-5">
