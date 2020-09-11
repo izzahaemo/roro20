@@ -50,12 +50,7 @@
                                 <td><?= $a['name']; ?></td>
                                 <td><?= $a['class']; ?></td>
                                 <td><?= $a['role']; ?></td>
-                                <td><?php if (date('d-m-y') != date('d-m-y', strtotime($a['last_login']))) : ?>
-                                        <?= date('d-m-y', strtotime($a['last_login'])) ?>
-                                    <?php else : ?>
-                                        <?= date('H:i:s', strtotime($a['last_login'])) ?>
-                                    <?php endif; ?>
-                                </td>
+                                <td><?= date('d-m-y H:i:s', strtotime($a['last_login'])) ?></td>
                                 <?php if ($a['is_active'] == 0) {
                                     $status = "Off";
                                 } else if ($a['is_vote'] == 1) {
