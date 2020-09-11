@@ -73,8 +73,8 @@ class M_kelas extends CI_Model
         $query = " SELECT `done` FROM `kelas` WHERE `idkelas` = '$idkelas' ";
         $isi = $this->db->query($query)->row_array();
         $isi['done'] = $isi['done'] + 1;
-        $hasil = $this->db->where('idkelas', $idkelas);
-        return $hasil = $this->db->update('kelas', $isi);
+        $this->db->where('idkelas', $idkelas);
+        return $this->db->update('kelas', $isi);
     }
     function edit_kelas($idkelas, $isi)
     {
