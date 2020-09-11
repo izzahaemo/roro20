@@ -137,6 +137,20 @@ class Admin extends CI_Controller
             Akun berhasil di ubah! </div>');
         redirect('admin/kelas/' . $idkelas);
     }
+    public function edit_kelas()
+    {
+        $idkelas = $this->input->post('idkelas');
+        //$edit_role = $this->input->post('edit_role');
+        $isi = [
+            'total' => $this->input->post('total'),
+            'aktif' => $this->input->post('aktif'),
+            'done' => $this->input->post('done')
+        ];
+        $this->m_kelas->edit_kelas($idkelas, $isi);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Akun berhasil di ubah! </div>');
+        redirect('admin/kelas/' . $idkelas);
+    }
     public function aktif()
     {
         $idkelas = $this->input->post('idkelas');

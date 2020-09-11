@@ -18,6 +18,12 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data Akun <?= $kelas['name'] ?></h6>
+            <a href="" class="btn btn-info btn-icon-split btn-sm" data-toggle="modal" data-target="#editkelas   ">
+                <span class="icon text-white-50">
+                    <i class="fas fa-info-circle"></i>
+                </span>
+                <span class="text">Edit</span>
+            </a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -299,6 +305,51 @@ foreach ($account as $a) :
                         <input type="hidden" name="idkelas" value="<?= $kelas['idkelas'] ?>">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                         <button type="submit" class="btn btn-danger">Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+
+<!-- EditdataMasuk -->
+<?php
+foreach ($account as $a) :
+?>
+    <div class="modal fade" id="editkelas" tabindex="-1" role="dialog" aria-labelledby="editkelasLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editkelasLabel">Edit Kelas <?= $kelas['idkelas'] ?></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <form action="<?= base_url('admin/edit_kelas') ?>" method="post">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Total</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="total" name="total" value="<?= $kelas['total'] ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Aktif</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="aktif" name="aktif" value="<?= $kelas['aktif'] ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Done</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="done" name="done" value="<?= $kelas['done'] ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="idkelas" value="<?= $kelas['idkelas'] ?>">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                 </form>
             </div>

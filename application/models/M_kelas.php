@@ -76,4 +76,9 @@ class M_kelas extends CI_Model
         $hasil = $this->db->where('idkelas', $idkelas);
         return $hasil = $this->db->update('kelas', $isi);
     }
+    function edit_kelas($idkelas, $isi)
+    {
+        $hasil = $this->db->where('idkelas', $idkelas);
+        return $hasil = $this->db->update('kelas', $isi);
+    }
 }
