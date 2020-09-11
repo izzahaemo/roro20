@@ -45,7 +45,7 @@
                         <?php $i = 1; ?>
                         <?php foreach ($all as $a) : ?>
                             <tr>
-                                <td><?= $a['id']; ?></td>
+                                <td><?= $i ?></td>
                                 <td><?= $a['email']; ?></td>
                                 <td><?= $a['name']; ?></td>
                                 <td><?= $a['class']; ?></td>
