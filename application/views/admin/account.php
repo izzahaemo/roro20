@@ -110,7 +110,14 @@
                 <?php } else { ?>
                     <div class="col-xl-3 col-md-6 mb-4">
                     <?php } ?>
-                    <div class="card border-left-primary shadow h-100 py-2">
+                    <?php if ($m['done'] == $m['aktif']) {
+                        $tanda = 'primary';
+                        $simbol = 'check';
+                    } else {
+                        $tanda = 'danger';
+                        $simbol = 'minus';
+                    } ?>
+                    <div class="card border-left-<?= $tanda ?> shadow h-100 py-2">
                         <a href="<?= base_url('admin/') . $m['url']; ?>">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
@@ -134,6 +141,7 @@
                                         </div>
                                     </div>
                                     <div class="col-auto">
+                                        <i class="fas fa-<?= $simbol ?> fa-4x text-gray-300"></i>
                                         <i class="text-lg"><?= $m['id']; ?></i>
                                     </div>
                                 </div>
