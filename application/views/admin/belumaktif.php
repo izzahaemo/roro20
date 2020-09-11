@@ -46,7 +46,7 @@
                         <?php foreach ($all as $a) : ?>
                             <?php if ($a['is_active'] == 0) { ?>
                                 <tr>
-                                    <td><?= $a['id']; ?></td>
+                                    <td><?= $i; ?></td>
                                     <td><?= $a['email']; ?></td>
                                     <td><?= $a['name']; ?></td>
                                     <td><?= $a['class']; ?></td>

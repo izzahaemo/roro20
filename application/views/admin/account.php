@@ -110,10 +110,13 @@
                 <?php } else { ?>
                     <div class="col-xl-3 col-md-6 mb-4">
                     <?php } ?>
-                    <?php
-                    $tanda = 'primary';
-                    $simbol = 'check';
-                    ?>
+                    <?php if ($m['total'] <= $m['aktif']) {
+                        $tanda = 'primary';
+                        $simbol = 'check';
+                    } else {
+                        $tanda = 'danger';
+                        $simbol = 'minus';
+                    } ?>
                     <div class="card border-left-<?= $tanda ?> shadow h-100 py-2">
                         <a href="<?= base_url('admin/') . $m['url']; ?>">
                             <div class="card-body">
