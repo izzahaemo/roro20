@@ -71,7 +71,7 @@
 
         <div class="col-md-3 mb-4">
             <div class="card border-bottom-danger shadow h-100 py-2">
-                <div class="card-body">
+                <a href="<?= base_url('admin/belum_aktif') ?>" class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Akun Belum Aktif</div>
@@ -81,7 +81,7 @@
                             <i class="fas fa-minus fa-2x text-gray-300"></i>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="col-md-3 mb-4">
