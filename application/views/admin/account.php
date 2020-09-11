@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-3 mb-4">
             <div class="card border-bottom-primary shadow h-100 py-2">
-                <div class="card-body">
+                <a href="<?= base_url('admin/akunsemua') ?>" class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Akun.</div>
@@ -28,7 +28,7 @@
                             <i class="fas fa-users fa-2x text-gray-300"></i>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
