@@ -2,7 +2,7 @@
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <a href="<?= base_url('auth/about'); ?>">
-                <span>Copyright &copy; RORO20 (Reorganisasi Rohis SMA 3 Sukoharjo) <?= date('Y'); ?> v. 1.0.0</span>
+                <span>RORO20 (Reorganisasi Rohis SMA 3 Sukoharjo) Copyright &copy; by @izzahaemo <?= date('Y'); ?> v. 1.0.0</span>
             </a>
         </div>
     </div>
